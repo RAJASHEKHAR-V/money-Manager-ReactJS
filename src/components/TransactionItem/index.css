@@ -1,0 +1,45 @@
+.transaction-item {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #d7dfe9;
+  padding-left: 8px;
+  padding-right: 5px;
+}
+
+.transaction-title {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+  width: 30%;
+  display: flex;
+}
+
+.transaction-amount {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+  width: 30%;
+}
+
+.transaction-type {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+  width: 30%;
+}
+
+.delete-button {
+  background-color: none;
+  border: none;
+  height: 35px;
+  width: 35px;
+  outline: none;
+  cursor: pointer;
+}
+
+.delete-image {
+  width: 80%;
+  height: 60%;
+}

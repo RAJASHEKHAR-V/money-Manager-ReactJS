@@ -1,0 +1,92 @@
+.balance-card {
+  width: 30%;
+  height: 90px;
+  background-color: #ecfccb;
+  border: 1px solid #84cc16;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.type-image {
+  width: 20%;
+}
+
+.amount-detail-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.type-name {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+  /* margin: auto; */
+}
+
+.type-amount {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+  /* margin: auto; */
+}
+
+.income-card {
+  width: 30%;
+  height: 90px;
+  background-color: #ecfccb;
+  border: 1px solid #06b6d4;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+/* 
+.income-image {
+  width: 30%;
+}
+
+.income-detail-card {
+  width: 70%;
+}
+
+.income-name {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+}
+
+.income-amount {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+} */
+
+.expense-card {
+  width: 30%;
+  height: 90px;
+  background-color: #ede9fe;
+  border: 1px solid #7c3aed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+
+/* .expense-detail-card {
+  width: 70%;
+}
+
+.expense-name {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+}
+
+.expense-amount {
+  font-family: 'Roboto';
+  color: #334155;
+  font-weight: bold;
+} */
