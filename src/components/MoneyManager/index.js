@@ -25,18 +25,12 @@ class MoneyManager extends Component {
     title: '',
     amount: '',
     typeId: transactionTypeOptions[0].optionId,
-    // balance: 0,
-    // income: 0,
-    // expenses: 0, Method-I
+    date: '',
   }
 
   onAddButton = event => {
     event.preventDefault()
-
-    // Here the values taken from the previous state and updating to the new object above
-    // Also need to update the balance, income, expenses based incoming typeId
-
-    const {title, amount, typeId} = this.state
+    const {title, amount, typeId, date} = this.state
     const {displayText} = transactionTypeOptions.filter(
       eachItem => eachItem.optionId === typeId,
     )[0]
@@ -46,8 +40,12 @@ class MoneyManager extends Component {
       amount,
       typeId,
       amountType: displayText,
+      date,
     }
+    // Here the values taken from the previous state and updating to the new object above
+    // Also need to update the balance, income, expenses based incoming typeId
     // Form-Level Check
+
     if (title !== '' && amount !== '') {
       this.setState(prevSate => ({
         transactionList: [...prevSate.transactionList, newObject],
@@ -56,28 +54,6 @@ class MoneyManager extends Component {
         typeId: transactionTypeOptions[0].optionId,
       }))
     }
-
-    // Method-I Directly updating values after clicking the add button
-
-    // if (typeId === transactionTypeOptions[0].optionId) {
-    //   this.setState(prevSate => ({
-    //     transactionList: [...prevSate.transactionList, newObject],
-    //     title: '',
-    //     amount: '',
-    //     typeId: transactionTypeOptions[0].optionId,
-    //     // balance: prevSate.income + parseInt(amount) - prevSate.expenses,
-    //     // income: prevSate.income + parseInt(amount),
-    //   }))
-    // } else {
-    //   this.setState(prevSate => ({
-    //     transactionList: [...prevSate.transactionList, newObject],
-    //     title: '',
-    //     amount: '',
-    //     typeId: transactionTypeOptions[0].optionId,
-    //     // balance: prevSate.income - parseInt(amount),
-    //     // expenses: prevSate.expenses + parseInt(amount),
-    //   }))
-    // }
   }
 
   onChangeOfTitle = event => {
@@ -93,6 +69,10 @@ class MoneyManager extends Component {
     this.setState({typeId: event.target.value})
   }
 
+  onChangeOfDate = event => {
+    this.setState({date: event.target.value})
+  }
+
   onDeleteButton = id => {
     const {transactionList} = this.state
     const filteredTransactionList = transactionList.filter(
@@ -101,48 +81,7 @@ class MoneyManager extends Component {
     this.setState({
       transactionList: filteredTransactionList,
     })
-
-    // Method-I
-    // const {amount, typeId} = transactionList.filter(
-    //   eachItem => eachItem.id === id,
-    // )[0]
-    // if (typeId === transactionTypeOptions[0].optionId) {
-    //   this.setState(prevSate => ({
-    //     transactionList: filteredTransactionList,
-    //     balance: prevSate.income - parseInt(amount) - prevSate.expenses,
-    //     income: prevSate.income - parseInt(amount),
-    //   }))
-    // } else {
-    //   this.setState(prevSate => ({
-    //     transactionList: filteredTransactionList,
-    //     balance: prevSate.balance + parseInt(amount),
-    //     expenses: prevSate.expenses - parseInt(amount),
-    //   }))
-    // }
   }
-
-  // Method-III
-  //   getIncome = () => {
-  //     const {transactionList} = this.state
-  //     let income = 0
-  //     transactionList.forEach(eachItem => {
-  //       if (eachItem.typeId === transactionTypeOptions[0].optionId) {
-  //         income += parseInt(eachItem.amount)
-  //       }
-  //     })
-  //     return income
-  //   }
-
-  //   getExpenses = () => {
-  //     const {transactionList} = this.state
-  //     let expenses = 0
-  //     transactionList.forEach(eachItem => {
-  //       if (eachItem.typeId === transactionTypeOptions[1].optionId) {
-  //         expenses += parseInt(eachItem.amount)
-  //       }
-  //     })
-  //     return expenses
-  //   }
 
   getUpdateMoneyDetails = () => {
     const {transactionList} = this.state
@@ -162,18 +101,8 @@ class MoneyManager extends Component {
   }
 
   render() {
-    const {
-      transactionList,
-      title,
-      amount,
-      typeId,
-      //   balance,
-      //   income,
-      //   expenses, Method-I
-    } = this.state
-    // const income = this.getIncome()      // Method-III
-    // const expenses = this.getExpenses()
-    const {balance, income, expenses} = this.getUpdateMoneyDetails() // Method-II
+    const {transactionList, title, amount, typeId} = this.state
+    const {balance, income, expenses} = this.getUpdateMoneyDetails()
 
     return (
       <div className="bg-container">
@@ -216,6 +145,15 @@ class MoneyManager extends Component {
               className="amount-input"
               value={amount}
               onChange={this.onChangeOfAmount}
+            />
+            <label className="date-time" htmlFor="time">
+              DATE
+            </label>
+            <input
+              type="date"
+              id="time"
+              className="date-input"
+              onChange={this.onChangeOfDate}
             />
             <select
               className="transaction-options"
