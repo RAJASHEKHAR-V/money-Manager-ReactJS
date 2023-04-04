@@ -159,7 +159,6 @@
 .transaction-description-item {
   width: 95%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   border: 1px solid #d7dfe9;
   padding-left: 8px;
