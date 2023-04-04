@@ -43,26 +43,6 @@
   align-items: center;
   border-radius: 10px;
 }
-/* 
-.income-image {
-  width: 30%;
-}
-
-.income-detail-card {
-  width: 70%;
-}
-
-.income-name {
-  font-family: 'Roboto';
-  color: #334155;
-  font-weight: bold;
-}
-
-.income-amount {
-  font-family: 'Roboto';
-  color: #334155;
-  font-weight: bold;
-} */
 
 .expense-card {
   width: 30%;
@@ -74,19 +54,3 @@
   align-items: center;
   border-radius: 10px;
 }
-
-/* .expense-detail-card {
-  width: 70%;
-}
-
-.expense-name {
-  font-family: 'Roboto';
-  color: #334155;
-  font-weight: bold;
-}
-
-.expense-amount {
-  font-family: 'Roboto';
-  color: #334155;
-  font-weight: bold;
-} */

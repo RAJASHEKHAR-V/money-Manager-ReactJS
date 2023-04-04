@@ -25,12 +25,11 @@ class MoneyManager extends Component {
     title: '',
     amount: '',
     typeId: transactionTypeOptions[0].optionId,
-    date: '',
   }
 
   onAddButton = event => {
     event.preventDefault()
-    const {title, amount, typeId, date} = this.state
+    const {title, amount, typeId} = this.state
     const {displayText} = transactionTypeOptions.filter(
       eachItem => eachItem.optionId === typeId,
     )[0]
@@ -40,7 +39,6 @@ class MoneyManager extends Component {
       amount,
       typeId,
       amountType: displayText,
-      date,
     }
     // Here the values taken from the previous state and updating to the new object above
     // Also need to update the balance, income, expenses based incoming typeId
@@ -67,10 +65,6 @@ class MoneyManager extends Component {
   onChangeOfOptions = event => {
     console.log(event.target.value)
     this.setState({typeId: event.target.value})
-  }
-
-  onChangeOfDate = event => {
-    this.setState({date: event.target.value})
   }
 
   onDeleteButton = id => {
@@ -145,15 +139,6 @@ class MoneyManager extends Component {
               className="amount-input"
               value={amount}
               onChange={this.onChangeOfAmount}
-            />
-            <label className="date-time" htmlFor="time">
-              DATE
-            </label>
-            <input
-              type="date"
-              id="time"
-              className="date-input"
-              onChange={this.onChangeOfDate}
             />
             <select
               className="transaction-options"
